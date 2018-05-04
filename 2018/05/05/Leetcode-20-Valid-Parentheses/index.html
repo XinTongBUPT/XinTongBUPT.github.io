@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Awesome guy.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. An input string is valid if: Open brackets must be closed by the same type of bra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode#20 Valid Parentheses">
+<meta property="og:url" content="http://yoursite.com/2018/05/05/Leetcode-20-Valid-Parentheses/index.html">
 <meta property="og:site_name" content="Xin Tong&#39;s Blog">
-<meta property="og:description" content="Awesome guy.">
+<meta property="og:description" content="Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. An input string is valid if: Open brackets must be closed by the same type of bra">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-18T11:49:31.000Z">
+<meta property="og:updated_time" content="2018-05-04T16:05:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="Awesome guy.">
+<meta name="twitter:title" content="Leetcode#20 Valid Parentheses">
+<meta name="twitter:description" content="Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. An input string is valid if: Open brackets must be closed by the same type of bra">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/05/Leetcode-20-Valid-Parentheses/"/>
 
 
 
 
 
-  <title>categories | Xin Tong's Blog</title>
+  <title>Leetcode#20 Valid Parentheses | Xin Tong's Blog</title>
   
 
 
@@ -240,40 +240,179 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/Leetcode-20-Valid-Parentheses/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xin Tong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xin Tong's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                2 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode-java/">leetcode(java)</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/personal-idea/">personal idea</a><span class="category-list-count">2</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Leetcode#20 Valid Parentheses</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T00:02:53+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode-java/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode(java)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
+<p>An input string is valid if:</p>
+<p>Open brackets must be closed by the same type of brackets.<br>Open brackets must be closed in the correct order.<br>Note that an empty string is also considered valid.</p>
+<hr>
+<p>soluion 1:</p>
+<hr>
+<p>class Solution {<br>    public boolean isValid(String s) {<br>        Stack<character> parentheses = new Stack<character>();<br>        for(int i=0;i&lt;s.length();++i){<br>            char c = s.charAt(i);<br>            if(c==’(‘||c==’[‘||c==’{‘)<br>                parentheses.push(c);<br>            else{<br>                if(parentheses.empty())<br>                    return false;<br>                if(c==’)’&amp;&amp;parentheses.peek()!=’(‘)<br>                    return false;<br>                if(c==’]’&amp;&amp;parentheses.peek()!=’[‘)<br>                    return false;<br>                if(c==’}’&amp;&amp;parentheses.peek()!=’{‘)<br>                    return false;<br>                parentheses.pop();<br>            }<br>        }<br>        return parentheses.empty();<br>    }<br>}</character></character></p>
+<hr>
+<p>soluion 2:</p>
+<hr>
+<p>/** </p>
+<pre><code>* 这个方法超棒 
+* 栈中放的只有当前需要出现的右部 
+* 当出现一个左部的时候，就将应该出现的右部放入栈中 
+* 当出现右部时和栈顶元素比较，如果不相同则返回FALSE 
+* 最后栈为非空时也会返回FALSE 
+* 都没有问题的时候会返回TRUE
+* 但Your runtime beats 7.70 % of java submissions.
+</code></pre><p>**/ </p>
+<p>class Solution {<br>    public boolean isValid(String s) {<br>        Stack<character> stack = new Stack<character>();<br>        for (char c : s.toCharArray()) {<br>            if (c == ‘(‘)<br>                stack.push(‘)’);<br>            else if (c == ‘{‘)<br>                stack.push(‘}’);<br>            else if (c == ‘[‘)<br>                stack.push(‘]’);<br>            else if (stack.isEmpty() || stack.pop() != c)<br>                return false;<br>        }<br>        return stack.isEmpty();<br>    }<br>}</character></character></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/21/Summary-applying-for-master/" rel="next" title="Summary:applying for master">
+                <i class="fa fa-chevron-left"></i> Summary:applying for master
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -282,6 +421,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
