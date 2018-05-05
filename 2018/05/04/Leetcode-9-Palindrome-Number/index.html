@@ -81,14 +81,14 @@
 
 <meta name="description" content="leetcode solutions (through java)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode#7 Reverse Integer">
-<meta property="og:url" content="http://yoursite.com/2018/05/04/Leetcode-7-Reverse-Integer/index.html">
+<meta property="og:title" content="Leetcode#9 Palindrome Number">
+<meta property="og:url" content="http://yoursite.com/2018/05/04/Leetcode-9-Palindrome-Number/index.html">
 <meta property="og:site_name" content="Xin Tong&#39;s Blog">
 <meta property="og:description" content="leetcode solutions (through java)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-05T05:04:53.000Z">
+<meta property="og:updated_time" content="2018-05-05T05:09:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode#7 Reverse Integer">
+<meta name="twitter:title" content="Leetcode#9 Palindrome Number">
 <meta name="twitter:description" content="leetcode solutions (through java)">
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/04/Leetcode-7-Reverse-Integer/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/04/Leetcode-9-Palindrome-Number/"/>
 
 
 
 
 
-  <title>Leetcode#7 Reverse Integer | Xin Tong's Blog</title>
+  <title>Leetcode#9 Palindrome Number | Xin Tong's Blog</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/04/Leetcode-7-Reverse-Integer/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/04/Leetcode-9-Palindrome-Number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xin Tong">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode#7 Reverse Integer</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode#9 Palindrome Number</h1>
         
 
         <div class="post-meta">
@@ -345,17 +345,17 @@
       
 
       
-        <p>Reverse digits of an integer.<br>Example1: x = 123, return 321<br>Example2: x = -123, return -321<br>Have you thought about this?</p>
+        <p>Determine whether an integer is a palindrome. Do this without extra space.</p>
+<p>Some hints:</p>
 <ul>
-<li>Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!</li>
-<li>If the integer’s last digit is 0, what should the output be? ie, cases such as 10, 100.</li>
-<li>Did you notice that the reversed integer might overflow? Assume the input is a 32-bit integer, then the reverse of 1000000003 overflows. How should you handle such cases?</li>
-<li>Throw an exception? Good, but what if throwing an exception is not an option? You would then have to re-design the function (ie, add an extra parameter).</li>
+<li>Could negative integers be palindromes? (ie, -1)</li>
+<li>If you are thinking of converting the integer to string, note the restriction of using extra space.</li>
+<li>You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?</li>
 </ul>
 <hr>
 <p>Solution:</p>
-<p><em>变化前后对比——用一个变量存储变化后的值，每次做反向操作，如果和之前的值一样就更新，不一样，说明溢出。</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> tag =<span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> newres=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;<span class="number">0</span>)&#123;</span><br><span class="line">            x = -x;</span><br><span class="line">            tag = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</span><br><span class="line">            newres=result*<span class="number">10</span>+x%<span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span>((newres-x%<span class="number">10</span>)/<span class="number">10</span>!=result)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;<span class="comment">//不等，说明溢出</span></span><br><span class="line">            result=newres;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(tag)&#123;</span><br><span class="line">            <span class="keyword">return</span> -result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>回文（指顺读和倒读都一样的词语）</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">bool <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">0</span>,b=x;</span><br><span class="line">        <span class="keyword">while</span>(b&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            a=a*<span class="number">10</span>+b%<span class="number">10</span>;</span><br><span class="line">            b/=<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a==x)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -380,8 +380,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/21/Summary-applying-for-master/" rel="next" title="Summary:applying for master">
-                <i class="fa fa-chevron-left"></i> Summary:applying for master
+              <a href="/2018/05/02/Leetcode-7-Reverse-Integer/" rel="next" title="Leetcode#7 Reverse Integer">
+                <i class="fa fa-chevron-left"></i> Leetcode#7 Reverse Integer
               </a>
             
           </div>
@@ -460,7 +460,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
