@@ -344,29 +344,14 @@
 
       
         
-          
-            <p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
-<p>An input string is valid if:</p>
-<p>Open brackets must be closed by the same type of brackets.<br>Open brackets must be closed in the correct order.<br>Note that an empty string is also considered valid.</p>
-<hr>
-<p>soluion 1:</p>
-<hr>
-<p>class Solution {<br>    public boolean isValid(String s) {<br>        Stack<character> parentheses = new Stack<character>();<br>        for(int i=0;i&lt;s.length();++i){<br>            char c = s.charAt(i);<br>            if(c==’(‘||c==’[‘||c==’{‘)<br>                parentheses.push(c);<br>            else{<br>                if(parentheses.empty())<br>                    return false;<br>                if(c==’)’&amp;&amp;parentheses.peek()!=’(‘)<br>                    return false;<br>                if(c==’]’&amp;&amp;parentheses.peek()!=’[‘)<br>                    return false;<br>                if(c==’}’&amp;&amp;parentheses.peek()!=’{‘)<br>                    return false;<br>                parentheses.pop();<br>            }<br>        }<br>        return parentheses.empty();<br>    }<br>}</character></character></p>
-<hr>
-<p>soluion 2:</p>
-<hr>
-<p>/** </p>
-<pre><code>* 这个方法超棒 
-* 栈中放的只有当前需要出现的右部 
-* 当出现一个左部的时候，就将应该出现的右部放入栈中 
-* 当出现右部时和栈顶元素比较，如果不相同则返回FALSE 
-* 最后栈为非空时也会返回FALSE 
-* 都没有问题的时候会返回TRUE
-* 但Your runtime beats 7.70 % of java submissions.
-</code></pre><p>**/ </p>
-<p>class Solution {<br>    public boolean isValid(String s) {<br>        Stack<character> stack = new Stack<character>();<br>        for (char c : s.toCharArray()) {<br>            if (c == ‘(‘)<br>                stack.push(‘)’);<br>            else if (c == ‘{‘)<br>                stack.push(‘}’);<br>            else if (c == ‘[‘)<br>                stack.push(‘]’);<br>            else if (stack.isEmpty() || stack.pop() != c)<br>                return false;<br>        }<br>        return stack.isEmpty();<br>    }<br>}</character></character></p>
-
-          
+          leetcode solutions
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/05/Leetcode-20-Valid-Parentheses/">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
